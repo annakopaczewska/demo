@@ -1,1 +1,6 @@
 rootProject.name = 'demo'
+include 'src:main:untitled'
+findProject(':src:main:untitled')?.name = 'untitled'
+include 'src:main:untitled'
+findProject(':src:main:untitled')?.name = 'untitled'
+

@@ -1,25 +1,56 @@
 package com.example.demo;
 
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class MyConfigReader {
-    @Value("${myConfigReader.exampleString}")
-    public String exampleString;
+@ConfigurationProperties(prefix = "db")
+class DataBaseProperties {
 
-    @Value("${myConfigReader.exampleNumber}")
-    public int exampleNumber;
+    private String host;
+    private int port;
+    private String username;
+    private String userpass;
 
-    @Value("${myConfigReader.exampleTrueOrFalse}")
-    public boolean exampleTrueOrFalse;
+    public String getHost() {
+        return host;
+    }
 
-    @RequestMapping("/checkConfig")
-    public String checkConfig() {
-        return "String from config: " + exampleString +
-                " Number from config: " + exampleNumber +
-                " Boolean from config: " + exampleTrueOrFalse;
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUserpass() {
+        return userpass;
+    }
+
+    public void setUserpass(String userpass) {
+        this.userpass = userpass;
+    }
+
+    @RequestMapping("/getConnectionParam")
+    public String showConnectionParam() {
+        return "host " + host
+                + " port " + port
+                + " username " + username
+                + " userpass " + userpass;
     }
 }
