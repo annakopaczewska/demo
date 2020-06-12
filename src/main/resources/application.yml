@@ -1,0 +1,10 @@
+myConfigReader:
+  exampleString: hello!
+  exampleNumber: 4
+  exampleTrueOrFalse: true
+
+db:
+  host: localhost
+  port: 3306
+  username: admin
+  userpass: admin123

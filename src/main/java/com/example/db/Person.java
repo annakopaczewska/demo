@@ -1,4 +1,4 @@
-package com.example;
+package com.example.db;
 
 public class Person {
     private String name;
